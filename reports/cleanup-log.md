@@ -3,6 +3,65 @@
 This file tracks the recurring safety-net job that merges any `claude/*` digest branches that
 failed to self-merge, and deletes stale branches once they're empty.
 
+## 2026-07-26 cleanup run
+
+Safety-net run found a quiet week: self-merge had kept up on every digest since the last
+recorded run (2026-07-19). 5 `claude/*` branches existed at fetch time (`origin/main` at
+`88257bc`): 4 prior digest branches plus this run's own session branch. (The 60-branch backlog
+noted as undeleted at the end of the 2026-07-19 run is gone — cleared outside this job between
+runs, not by this one.)
+
+### Branches merged
+
+None. All 5 branches had `ahead=0` (`git rev-list --count origin/main..origin/<branch>` = 0 for
+every branch) — their commits were already ancestors of `main`, confirmed with
+`git merge-base --is-ancestor`. No PRs were needed or opened.
+
+### Branches confirmed empty (ahead=0 vs main)
+
+| Branch | Last commit date | Topic |
+|---|---|---|
+| claude/sleepy-sagan-kwn5yg | 2026-07-21 | AI economics digest |
+| claude/vigilant-pascal-4xzvqv | 2026-07-24 | AI & labor markets digest |
+| claude/vigilant-pascal-ql09as | 2026-07-25 | AI & labor markets digest |
+| claude/vigilant-pascal-qs08i1 | 2026-07-20 | AI-labor digest item swap |
+| claude/great-davinci-re0dhl | 2026-07-26 | This run's own session branch |
+
+No exceptions for "in-flight" branches were needed — the newest branch commit (this run's own,
+`claude/great-davinci-re0dhl`) was from this same run, not a separate in-flight job, and every
+other branch's last commit was more than 24 hours old at run time (current time
+2026-07-26T09:31 UTC).
+
+### FAILURE: branch deletion could not be performed (repeat of 2026-07-19)
+
+**All 5 branches above remain on the remote**, including this run's own session branch, which
+could not be deleted as the final step per the job's instructions. Same root cause as the
+2026-07-19 run, re-confirmed today:
+
+- `git push origin --delete <branch>` fails with **HTTP 403** from this session's local git
+  proxy for every branch tried.
+- No `delete_branch` / `delete_ref` method is exposed among the available GitHub MCP tools in
+  this session (re-checked via tool search: only `create_branch`/`list_branches`, no delete).
+- Direct GitHub REST API calls (`api.github.com`) are blocked by the session's egress proxy with
+  an explicit message: *"GitHub access is not enabled for this session. An org admin must
+  connect the Claude GitHub App for this organization."* — this is a policy block, not a
+  transient network failure.
+- Regular (non-delete) `git push` to the session branch works fine (verified with
+  `--dry-run`), and the GitHub MCP file/PR-write tools work fine — only ref *deletion* is
+  blocked, consistently, across both the git-proxy and REST paths.
+
+**Net result:** all paper content was already on `main` before this run started (goal achieved
+independent of this run), and nothing needed merging. The safety net still cannot complete
+branch cleanup — this is now confirmed as a standing environment limitation, not a one-off.
+**Recommend an org admin connect the Claude GitHub App for this organization (per the API error
+message above), or enable a GitHub MCP branch-deletion capability, before the next scheduled
+run** — until then, every run will accumulate at least one undeletable session branch even in
+weeks with zero digest backlog.
+
+### Merge method
+
+N/A this run — no branches required merging.
+
 ## 2026-07-19 cleanup run
 
 Safety-net run triggered because a large backlog had accumulated (self-merge had not been

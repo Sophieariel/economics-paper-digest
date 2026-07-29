@@ -1,0 +1,21 @@
+# AI & Economics of Science Papers — 2026-07-29
+
+## 1. A genetic algorithm for peer-review panel composition [Peer Review & Publication]
+
+**Authors:** Ferdinando Patat
+**Date:** July 14, 2026
+**Source:** https://arxiv.org/abs/2607.12757
+**Abstract:** The author formulates the assignment of expert reviewers to proposal-review panels as a constrained combinatorial optimization problem, balancing each panel's scientific-expertise coverage against demographic diversity across a finite pool of available reviewers. Applying a genetic algorithm to real panel-formation data from the European Southern Observatory's telescope-time proposal process, the method produces panel configurations with substantially lower imbalance than random or ad hoc assignment, with solution quality improving steadily across generations. The paper offers observatories and funding agencies a practical, automatable tool for a task — peer-review panel composition — that shapes how scientific attention and resources get allocated but is rarely optimized systematically.
+
+## 2. Autonomous Scientific Discovery via Iterative Meta-Reflection [AI for Science]
+
+**Authors:** Bingchen Zhao, Sara Beery, Oisin Mac Aodha
+**Date:** July 1, 2026
+**Source:** https://arxiv.org/abs/2607.01131
+**Abstract:** The authors present DiscoPER, an LLM-driven agent that conducts open-ended empirical research on a dataset by iteratively writing and executing its own analysis code, rather than pursuing a human-specified research question. A distinguishing "meta-reflection" step periodically has the agent step back, review the pattern of findings it has accumulated so far, and use that assessment to redirect subsequent exploration. The work pushes further toward autonomous research-production systems that select their own lines of inquiry, which bears on the economics of science as questions of credit, verification, and research-agenda-setting increasingly involve delegating discovery itself to an algorithm.
+
+---
+
+**Note on sourcing and shortfall:** Both of arXiv's export API (`export.arxiv.org`, called for via `curl` as Step 2 specifies) and the WebFetch tool were blocked this session by network egress policy — every attempt returned "Host not in allowlist" or HTTP 403, including a control fetch of `example.com` and direct fetches of `arxiv.org/abs/...` pages, `nber.org`, and CEPR pages, confirming this is a session-wide restriction rather than a per-site block. This is the same failure mode logged in the 2026-07-28 digest. As a result, Step 2's API harvest and Step 3's page fetches could not be run as written; instead, roughly 20 WebSearch queries were used to surface candidates, and every included item's title, authors, arXiv ID, and date were cross-checked across at least two independent search results before being accepted (no item is included on the basis of a single unverified snippet). Given this constraint, only 2 items could be confirmed as both genuinely new (not in the dedupe index) and inside the 30-day window (June 29 – July 29, 2026); no padding was added.
+
+Candidates found but excluded: "Messy Research, Certification and the Monetization of Science" (arXiv 2607.13844) and NBER w34953 "AI in Science" (Agrawal, McHale & Oettl) are both already covered in earlier digests in this repository. "More Versus Better: Artificial Intelligence, Incentives, and the Emerging Crisis in Peer Review" (Gartenberg, Hasan, Murray & Pierce, *Organization Science*) is a strong, directly on-topic paper but published online April 27, 2026 — outside the 30-day window. "Dead Science Walking: Publication Bias and the AI Scientist Pipeline" (arXiv 2606.04220) was posted June 2, 2026, also outside the window. "The unintended consequences of large language models as a labor-augmenting technology in science" (arXiv 2607.17397, July 19) falls inside the window but was excluded consistent with this repository's 2026-07-28 assessment flagging it as non-empirical/theoretical. NBER's Summer Institute 2026 sessions on the economics of science and AI (mid-to-late July) likely produced new circulating papers, but the NBER site could not be fetched to confirm specific titles or dates, and no such paper turned up via search with a verifiable date inside the window.

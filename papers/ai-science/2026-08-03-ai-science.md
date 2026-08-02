@@ -1,0 +1,3 @@
+# AI & Economics of Science Papers — 2026-08-03
+
+No new qualifying papers were found in the 30-day window this cycle. The arXiv harvest (cat:econ.GN, cs.DL, cs.CY) returned six candidates not already covered in this repo, but all fell outside scope (AI-mediated Go commentary, LLMs for urban-planning surveys, public-service AI governance in policing, conversational-AI psychology, video-game market dynamics, and AI-art discourse). Supplemental checks of NBER, CEPR, and Wiley/Learned Publishing surfaced no additional verifiable in-window candidates; the CEPR VoxEU column and the Wiley article were unreachable (403 and paywall respectively) and are excluded per the anti-fabrication rule.

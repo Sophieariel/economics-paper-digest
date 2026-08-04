@@ -21,4 +21,18 @@
 **Source:** https://arxiv.org/abs/2306.16643
 **Summary:** Analyzing nearly 32 million papers across physics, biomedicine, and chemistry, the authors identify a research strategy they call "conservative adventuring": switching topics frequently, but only among closely related subfields rather than jumping to distant ones. Scientists who follow this pattern earn up to 19% more citations on their future papers than peers with other exploration styles, even after controlling for confounders that plagued earlier, conflicting studies of topic-switching and performance. Researchers who deliberately shift into this behavior see similarly large gains, leading the authors to argue it functions as an adoptable career strategy for balancing exploration and exploitation.
 
-**Note on sourcing:** The arXiv harvest returned three new in-window candidates after excluding papers already covered in prior digests; a CEPR VoxEU column on generative AI in scientific experimentation was identified via supplemental search but was unreachable (403) and is excluded per the anti-fabrication rule. No NBER, SSRN, or Research Policy candidates within the 30-day window were found beyond papers already logged in earlier digests, so the list was not padded.
+## 4. Reviewer Scores Are Not Comparable Across Research Areas in ML Peer Review [Peer Review & Publication]
+
+**Authors:** Binyan Xu, Xilin Dai, Fan Yang, Kehuan Zhang
+**Date:** April 30, 2026 (v1); revised August 3, 2026
+**Source:** https://arxiv.org/abs/2607.27209
+**Summary:** Auditing ICLR reviews from 2021–2026 across more than 50,000 papers and 219 research topics, the authors show that a paper's acceptance probability at a given reviewer score can vary by up to 8x depending on its subfield, because a single numeric scale cannot meaningfully compare quality judgments across communities with structurally different reviewer pools. After ruling out scoring culture, expert-reviewer standards, and quality dilution as alternative explanations, they argue the mismatch is a measurement-design failure that forces area chairs to substitute community priors for score-based decisions. The paper calls on program committees to adopt calibrated review signals and publish topic-stratified acceptance rates as a fairness metric.
+
+## 5. Publication bias and p-hacking in the effect of COVID-19 on learning [Peer Review & Publication]
+
+**Authors:** Martina Luskova, Nino Buliskeria, Ali Elminejad, Tomas Havranek, Zuzana Irsova, Stepan Jurajda, Marek Kapicka
+**Date:** August 1, 2026
+**Source:** https://arxiv.org/abs/2608.00580
+**Summary:** Applying six independent bias-correction techniques, including RoBMA, MAIVE, and PET-PEESE, to the meta-analysis literature on COVID-19 school closures and learning loss, the authors test whether the widely cited human-capital-loss estimate is inflated by publication bias, p-hacking, or the mechanical link between effect sizes and their standard errors. Despite finding some evidence of selective reporting, their preferred corrected estimates converge on a learning loss of about 0.12 standard deviations, roughly 30% of a school year, essentially unchanged from the uncorrected consensus. The results show meta-science bias-correction methods can validate rather than overturn a policy-relevant empirical finding, reinforcing confidence in this measured cost of pandemic school closures.
+
+**Note on sourcing:** This update supplements the earlier same-day run with two additional qualifying arXiv candidates found via a broader keyword harvest of cs.DL/cs.CY/econ.GN. A supplemental search of NBER, SSRN, and CEPR/IZA surfaced only candidates published outside the 30-day window (e.g., NBER w34953, arXiv 2604.13940, arXiv 2510.24916), so none were added. A sixth qualifying candidate, an AI-driven scientific-knowledge-extraction framework (arXiv 2607.09806), was dropped to keep the digest at the five strongest entries.
